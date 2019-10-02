@@ -15,3 +15,13 @@ script:
   - npm test
 after_success:
   - npm run coverage
+dist: trusty
+addons:
+  sonarcloud:
+    organization: "bastidas6"
+    token:
+      secure: "**************************" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - sonar-scanner
